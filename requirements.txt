@@ -1,0 +1,5 @@
+ansible==6.3.0
+ansible-lint==6.5.2
+checkov==2.0.78
+scdl==2.7.2
+yt-dlp==2022.9.1
