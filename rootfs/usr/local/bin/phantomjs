@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# phantomjs uses an older version of OpenSSL than Fedora
+# see https://stackoverflow.com/a/72679175
+
+OPENSSL_CONF=/dev/null /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs "${@}"
