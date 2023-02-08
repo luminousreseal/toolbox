@@ -8,6 +8,10 @@ cargo
 clamav
 ffmpeg
 ffmpeg-devel
+fontconfig
+fontconfig-devel
+freetype
+freetype-devel
 gcc-c++
 git
 git-credential-libsecret
