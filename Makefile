@@ -15,7 +15,8 @@ enter:
 	toolbox enter fedora-toolbox-$(FEDORA_VERSION)
 
 pre-commit:
-	pre-commit install
+	export PRE_COMMIT_HOME=.cache/pre-commit ; \
+	pre-commit install && \
 	pre-commit run --all
 
 .PHONY: build create default enter pre-commit
