@@ -1,6 +1,8 @@
 name: container
 
 on:
+  schedule:
+    - "15 12 * * *"
   workflow_dispatch:
   pull_request:
   push:
