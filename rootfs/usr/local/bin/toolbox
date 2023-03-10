@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+TOOLBOX_SHELL="${TOOLBOX_SHELL:-"/bin/zsh"}"
+
+flatpak-spawn --host SHELL="$TOOLBOX_SHELL" toolbox "$@"

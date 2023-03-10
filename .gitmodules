@@ -1,3 +1,23 @@
 [submodule "rootfs/opt/asdf-vm"]
 	path = rootfs/opt/asdf-vm
 	url = https://github.com/asdf-vm/asdf
+
+[submodule "rootfs/opt/zsh/ohmyzsh"]
+	path = rootfs/opt/zsh/ohmyzsh
+	url = https://github.com/ohmyzsh/ohmyzsh
+
+[submodule "rootfs/opt/zsh/custom/themes/powerlevel10k"]
+	path = rootfs/opt/zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
+
+[submodule "rootfs/opt/zsh/custom/plugins/zsh-autosuggestions"]
+	path = rootfs/opt/zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+
+[submodule "rootfs/opt/zsh/custom/plugins/zsh-history-substring-search"]
+	path = rootfs/opt/zsh/custom/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+
+[submodule "rootfs/opt/zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = rootfs/opt/zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting

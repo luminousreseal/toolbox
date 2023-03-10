@@ -20,6 +20,9 @@ pre-commit:
 	pre-commit install && \
 	pre-commit run --all
 
+submodules:
+	git submodule update --remote
+
 test: build
 ifdef CI
 	$(DOCKER) run --rm -v $(PWD):/src:z $(IMAGE) bats /src/test
@@ -27,4 +30,4 @@ else
 	$(DOCKER) run -it --rm -v $(PWD):/src:z $(IMAGE) bats /src/test
 endif
 
-.PHONY: default build create enter pre-commit test
+.PHONY: default build create enter pre-commit submodules test

@@ -7,3 +7,4 @@ repos:
     rev: v0.9.0
     hooks:
       - id: shellcheck
+        exclude: (rootfs/opt/zsh|rootfs/etc/p10k.zsh)

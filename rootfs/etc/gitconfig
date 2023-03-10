@@ -1,0 +1,34 @@
+# -- https://stackoverflow.com/questions/11262010/shell-variable-expansion-in-git-config
+
+[include]
+path = ~/.gitconfig.local
+
+[includeIf "gitdir:~/workspaces/"]
+path = ~/workspaces/.gitconfig
+
+[color]
+diff = auto
+status = auto
+branch = auto
+interactive = auto
+ui = true
+pager = true
+
+[core]
+excludesfile = ~/.gitignore
+
+[fetch]
+prune = true
+
+[pull]
+rebase = true
+
+[alias]
+co = checkout
+st = status
+br = branch
+w = whatchanged
+amend = commit --amend
+
+[init]
+defaultBranch = main
