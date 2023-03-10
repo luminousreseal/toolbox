@@ -1,5 +1,5 @@
 ansible==7.2.0
 ansible-lint==6.14.2
-checkov==2.3.33
+checkov==2.3.75
 scdl==2.7.3
 yt-dlp==2023.3.4
