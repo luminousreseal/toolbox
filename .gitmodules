@@ -1,0 +1,3 @@
+[submodule "rootfs/opt/asdf-vm"]
+	path = rootfs/opt/asdf-vm
+	url = https://github.com/asdf-vm/asdf
