@@ -1,4 +1,4 @@
-export ASDF_DIR="/opt/asdf-vm"
+export ASDF_DIR="${ASDF_DIR:-"/opt/asdf-vm"}"
 
 if [ -n "$BASH_VERSION" ]; then
 	# shellcheck disable=SC1091

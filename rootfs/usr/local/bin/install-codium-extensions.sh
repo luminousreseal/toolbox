@@ -3,7 +3,7 @@
 EXTENSIONS_FILE="${EXTENSIONS_FILE:-"/etc/codium-extensions.txt"}"
 
 if [ -f "$EXTENSIONS_FILE" ]; then
-	mapfile -t CODIUM_EXTENSIONS < <(grep -h -v '^#' /etc/codium-extensions.txt)
+	mapfile -t CODIUM_EXTENSIONS < <(grep -h -v '^#' "${EXTENSIONS_FILE}")
 else
 	CODIUM_EXTENSIONS=()
 fi
