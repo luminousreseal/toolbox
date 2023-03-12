@@ -6,6 +6,10 @@ ARG FEDORA_VERSION
 
 COPY rootfs/ /
 
+ENV PATH="${PATH}:/opt/asdf-vm/bin" ASDF_DIR="/opt/asdf-vm" ASDF_DATA_DIR="/opt/asdf-vm"
+
+RUN /usr/local/bin/install-asdf-plugins.sh
+
 # hadolint ignore=SC2046,DL3016,DL3041
 RUN dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${FEDORA_VERSION}.noarch.rpm" \
     "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${FEDORA_VERSION}.noarch.rpm" && \
