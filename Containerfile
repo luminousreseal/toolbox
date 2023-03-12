@@ -18,8 +18,6 @@ RUN dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
     \
     dnf install -y $(awk '!/^($|#)/ { print $1 }' /etc/fedora-packages.txt) && \
     \
-    npm install -g $(awk '!/^($|#)/ { print $1 }' /etc/node-packages.txt) && \
-    \
     rpm --import https://keys.openpgp.org/vks/v1/by-fingerprint/034F7776EF5E0C613D2F7934D29FBD5F93C0CFC3 && \
     dnf config-manager --add-repo https://rpm.librewolf.net && \
     dnf install --refresh -y librewolf && \
@@ -33,6 +31,18 @@ RUN dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-r
     \
     curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -O && \
     tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2 -C /usr/local/share
+
+WORKDIR /vendor
+
+COPY package.json .
+
+COPY package-lock.json .
+
+RUN npm install
+
+ENV PATH="${PATH}:/vendor/node_modules/.bin"
+
+WORKDIR /
 
 COPY requirements.txt /
 

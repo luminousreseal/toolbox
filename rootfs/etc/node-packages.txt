@@ -1,4 +1,0 @@
-npm@latest
-gatsby-cli@4.22.0
-@vue/cli@5.0.8
-yarn@1.22.19
