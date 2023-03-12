@@ -1,12 +1,13 @@
 DOCKER ?= $(shell which docker 2>/dev/null || which podman)
 FEDORA_VERSION ?= 37
-BUILD_ARGS ?= --no-cache --pull
+BUILD_ARGS ?= --pull
 REGISTRY ?= localhost
+IMAGE ?= $(REGISTRY)/fedora-toolbox:$(FEDORA_VERSION)
 
 default: build
 
 build:
-	$(DOCKER) build $(BUILD_ARGS) --build-arg FEDORA_VERSION=$(FEDORA_VERSION) -t $(REGISTRY)/fedora-toolbox:$(FEDORA_VERSION) .
+	$(DOCKER) build $(BUILD_ARGS) --file $(PWD)/Containerfile --build-arg FEDORA_VERSION=$(FEDORA_VERSION) --tag $(IMAGE) .
 
 create:
 	toolbox create -i fedora-toolbox:$(FEDORA_VERSION)
@@ -19,4 +20,11 @@ pre-commit:
 	pre-commit install && \
 	pre-commit run --all
 
-.PHONY: build create default enter pre-commit
+test: build
+ifdef CI
+	$(DOCKER) run --rm -v $(PWD):/src:z $(IMAGE) bats /src/test
+else
+	$(DOCKER) run -it --rm -v $(PWD):/src:z $(IMAGE) bats /src/test
+endif
+
+.PHONY: default build create enter pre-commit test
