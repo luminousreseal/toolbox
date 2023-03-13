@@ -75,6 +75,10 @@ RUN curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-li
     tar xvjf /tmp/phantomjs.tar.bz2 -C /usr/local/share && \
     rm -rf /tmp/phantomjs.tar.bz2
 
+COPY rootfs/usr/share/fonts/ /usr/share/fonts/
+
+RUN fc-cache -f
+
 COPY rootfs/ /
 
 ENV PATH="${PATH}:/opt/asdf-vm/bin" ASDF_DIR="/opt/asdf-vm" ASDF_DATA_DIR="/opt/asdf-vm"
